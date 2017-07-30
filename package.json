@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "name": "hangman_weekly",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-validator": "^3.2.1",
+    "file-share": "^1.2.0",
+    "file-system": "^2.2.2",
+    "mustache": "^2.3.0",
+    "mustache-express": "^1.2.5"
+  }
+}
