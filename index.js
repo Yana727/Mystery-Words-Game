@@ -23,6 +23,7 @@ const words = fs
 const guess = ['a', 'b', 'c'] //<---- what user post
 
 const guessed = [] //<----- will post in guessed
+
 app.get('/lose', req, res) =>{
   res.render('/lose')
 }
