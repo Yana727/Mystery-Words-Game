@@ -8,12 +8,13 @@
     <h1> Mystery Game </h1>
     <p> You have __ guesses left</p>
     <!-- guessing dashes here -->
-    <form method="post" action = 'letters/add'>
-
+    <form method="post" action = '/letters/add'>
+      <input type="text" name="guess" value="">
+      <input type= "submit" name="guessed">
     </form>
-    <input type="text" name="guess" value="">
-    <input type= "submit" name="Make a guess" value="Guessed">
-
     <p>Letters guessed</p>
+    {{#guessed}}
+    {{.}}
+    {{/guessed}}
   </body>
 </html>
