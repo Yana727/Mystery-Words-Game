@@ -6,10 +6,13 @@
   </head>
   <body>
     <h1> Mystery Game </h1>
+    <p>
+    {{placeholder}}
+    </p>
     <p> You have __ guesses left</p>
     <!-- guessing dashes here -->
     <form method="post" action = '/letters/add'>
-      <input type="text" name="guess" value="">
+      <input type="text" name="guess" value="" maxlength="1">
       <input type= "submit" name="guessed">
     </form>
     <p>Letters guessed</p>
