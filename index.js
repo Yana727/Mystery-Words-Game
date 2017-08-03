@@ -25,24 +25,40 @@ let placeholder = wordLength.map(x => {
   return '_'
 })
 
+let count = 8
 const guess = [] //<---- what user post
 
 const guessed = [] //<----- will post in guessed
 
+console.log(wordToGuess)
+
 app.get('/lose', (req, res) => {
   res.render('lose')
 })
-
+app.get('/win', (req, res) => {
+  res.render('win')
+})
 app.get('/', (req, res) => {
-  res.render('home', { guess, guessed, placeholder })
+  res.render('home', { guess, guessed, placeholder, count })
 })
 // this 'talks' to the post in the function in home.mst
 app.post('/letters/add', function(req, res) {
-  guessed.push(req.body.guess)
-  if (guessed.length >= 8) {
-    res.redirect('/lose')
+  if (wordLength.includes(req.body.guess)) {
+    wordLength.forEach((letter, index) => {
+      if (letter === req.body.guess) {
+        placeholder[index] = letter
+      }
+    })
+    res.redirect('/')
+  } else {
+    count -= 1
+    guessed.push(req.body.guess)
+    if (count <= 0) {
+      res.redirect('/lose')
+    } else {
+      res.redirect('/win')
+    }
   }
-  res.redirect('/')
 })
 
 app.listen(3000, () => {
