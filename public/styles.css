@@ -1,0 +1,19 @@
+body {
+  font-family: sans-serif;
+  font-style: normal;
+  font-size: 2em;
+  color: white;
+  background-image: url("/mystery.jpg");
+  background-size: cover;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+}
+
+form {
+  font-size: 2em;
+}

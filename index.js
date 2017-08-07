@@ -4,14 +4,26 @@ const app = express()
 const mustacheExpress = require('mustache-express')
 const bodyParser = require('body-parser')
 const expressValidator = require('express-validator')
+const expressSession = require('express-session')
 app.engine('mst', mustacheExpress())
 app.set('views', './views')
 app.set('view engine', 'mst')
 
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(expressValidator())
 
-////given to us in the assignment////
+app.set('trust proxy', 1)
+app.use(
+  expressSession({
+    secret: 'yanasnewword87',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 60000 }
+  })
+)
+//added the max age this morning
+
 const file = require('file-system')
 const fs = require('fs')
 const words = fs
@@ -27,10 +39,7 @@ let placeholder = wordLength.map(x => {
 
 let count = 8
 const guess = [] //<---- what user post
-
 const guessed = [] //<----- will post in guessed
-
-console.log(wordToGuess)
 
 app.get('/lose', (req, res) => {
   res.render('lose')

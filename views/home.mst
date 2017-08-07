@@ -3,22 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>Game time</title>
+    <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
-    <h1> Mystery Game </h1>
-    <p>
-  {{#placeholder}}
-    <span class="answer">{{.}}</span>
-  {{/placeholder}}
-   </p>
+    <div class = 'wrapper'>
+      <h1> Mystery Game </h1>
+      <p>
+      {{#placeholder}}
+        <span class="answer">{{.}}</span>
+      {{/placeholder}}
+      </p>
     <p> You have {{count}} guesses left</p>
-    <form method="post" action = '/letters/add'>
-      <input type="text" name="guess" value="" maxlength="1">
-      <input type= "submit" name="guessed">
-    </form>
+      <form method="post" action = '/letters/add'>
+        <input type="text" name="guess" value="" maxlength="1">
+        <input type= "submit" name="guessed">
+      </form>
     <p>Letters guessed</p>
-    {{#guessed}}
-    {{.}}
-    {{/guessed}}
+      {{#guessed}}
+        {{.}}
+      {{/guessed}}
+    </div>
   </body>
 </html>
